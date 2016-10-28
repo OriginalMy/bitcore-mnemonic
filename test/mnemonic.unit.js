@@ -99,6 +99,10 @@ describe('Mnemonic', function() {
       Mnemonic.Words.ITALIAN.length.should.equal(2048);
       Mnemonic.Words.ITALIAN[0].should.equal('abaco');
     });
+    it('brazilian portuguese wordlist is complete', function() {
+      Mnemonic.Words.BRAZILIAN_PORTUGUESE.length.should.equal(2048);
+      Mnemonic.Words.BRAZILIAN_PORTUGUESE[0].should.equal('abacate');
+    });
 
     it('allows use different phrase lengths', function() {
       var mnemonic;
@@ -134,6 +138,12 @@ describe('Mnemonic', function() {
 
       var valid2 = Mnemonic.isValid('caution opprimer époque belote devenir ficeler filleul caneton apologie nectar frapper fouiller');
       valid2.should.equal(true);
+
+      var valid3 = Mnemonic.isValid('horrivel etiqueta agosto trilho esta vender prazo corrida sussurro arte peca cruel');
+      valid3.should.equal(true);
+
+      var invalid4 = Mnemonic.isValid('horrivel etiqueta agosto trilho miromba vender cachimbo corrida sussurro arte arraial cruel');
+      invalid4.should.equal(false);
     });
 
     it('has a toString method', function() {
